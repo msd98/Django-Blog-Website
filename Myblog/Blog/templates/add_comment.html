@@ -1,0 +1,45 @@
+<!--{% extends 'base.html' %}-->
+
+<!--{% block title %}Add Comment{% endblock %}-->
+<!--{% block content %}-->
+<!--<div class="col-md-8 card mb-4  mt-3 ">-->
+<!--      <div class="card-body">-->
+<!--&lt;!&ndash;        {% if new_comment %}&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="alert alert-success" role="alert">&ndash;&gt;-->
+<!--&lt;!&ndash;          Your comment is awaiting moderation&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% else %}&ndash;&gt;-->
+<!--        <h3>Leave a comment</h3>-->
+<!--        <form method="post" style="margin-top: 1.3em;">-->
+<!--          {{ comment_form.as_p }}-->
+<!--          {% csrf_token %}-->
+<!--          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>-->
+<!--        </form>-->
+<!--&lt;!&ndash;        {% endif %}&ndash;&gt;-->
+<!--        &lt;!&ndash; Comment with nested comments &ndash;&gt;-->
+<!--        {% for comment in comments %}-->
+<!--            <div class="comment" style="background-color: powderblue">-->
+<!--                <p class="info">{{ comment.name }} | {{ comment.created }}</p>-->
+<!--                    {{ comment.body|linebreaks }}-->
+
+<!--                {% for replay in comment.replies.all %}-->
+<!--                    <p class="info">{{ replay.name }} | {{ replay.created }}</p>-->
+<!--                    <li>{{ replay.body }}</li>-->
+<!--                {% endfor %}-->
+
+<!--                <h5>Replay</h5>-->
+<!--                <form action="." method="post">-->
+<!--                    {{ comment_form.as_p }}-->
+<!--                    {% csrf_token %}-->
+<!--                    &lt;!&ndash; Hidden input for parent comment.id &ndash;&gt;-->
+<!--                    <input type="hidden" name="parent_id" value="{{ comment.id }}">-->
+<!--                    <input class="btn btn-primary" type="submit" value="Replay">-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        {% empty %}-->
+<!--        <h4>There are no comments yet.</h4>-->
+<!--        {% endfor %}-->
+<!--      </div>-->
+<!--</div>-->
+
+<!--{% endblock %}-->

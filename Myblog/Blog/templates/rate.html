@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Rate Post{% endblock %}
+{% block content %}
+<div style="margin-left:50px;margin-top:50px;">
+<h1>Rate Post</h1><br/>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success">Rate</button>
+</form>
+</div>
+
+
+
+{% endblock %}
